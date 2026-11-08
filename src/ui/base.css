@@ -2,6 +2,15 @@
    stacks, light and dark palettes, and the floating-card look. */
 @import "./design-system.css";
 
+/* The editor's document face, shipped with the app (src/assets/fonts) so it
+   works whether or not the machine has the font installed. Same family name
+   as the system font, so a docFont of "等距更纱黑体 SC" resolves either way. */
+@font-face {
+  font-family: "等距更纱黑体 SC";
+  src: url("../assets/fonts/SarasaMonoSC-Regular.ttf") format("truetype");
+  font-display: swap;
+}
+
 /* Punctuation Unicode shares with Latin (curly double quotes, ellipsis, dash)
    is drawn by the first face that has it, so on a Mac it came out Latin. These
    faces take just those characters from the CJK face, and lead the stacks in a

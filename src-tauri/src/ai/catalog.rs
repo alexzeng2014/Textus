@@ -185,13 +185,15 @@ pub const PROVIDER_CATALOG: &[ProviderCatalogEntry] = &[
         // the models offered are the ones this endpoint serves.
         base_url: Some("https://opencode.ai/zen/go/v1"),
         default_model: Some("deepseek-v4.1-flash"),
-        agent_default_model: Some("deepseek-v4-pro"),
+        // Personal build: GLM-5.3 is the everyday writing model here.
+        agent_default_model: Some("glm-5.3"),
         key_optional: false,
         paper_at_once: 4,
         oauth_unofficial: false,
         supports_vision: true,
         models_listable: true,
         known_models: &[
+            "glm-5.3",
             "deepseek-v4-pro",
             "deepseek-v4.1-flash",
             "kimi-k2.7-code",
