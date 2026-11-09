@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+﻿import { useMemo, useState } from "react";
 import type { SidebarTabProps } from "../../app/sidebar-tabs";
 import { useSettings } from "../../prefs/SettingsContext";
 import { fs } from "../../platform/ipc";
@@ -18,6 +18,7 @@ import { absoluteChapterPath } from "../novel-project";
 import { groupChapters, renameChapter, setChapterAct } from "../chapters";
 import type { ChapterGroup } from "../chapters";
 import { chapterTitle, newId } from "../types";
+import "./novel-panel.css";
 import "./ManuscriptPanel.css";
 
 /** A chapter's length, or the book's, as the language writes numbers. */
@@ -159,7 +160,7 @@ export function ManuscriptPanel({
   // and says where the book stands.
   const words =
     goal > 0
-      ? `${total} · ${t.manuscriptGoal
+      ? `${total} 路 ${t.manuscriptGoal
           .replace("{of}", formatCount(goal, language))
           .replace(
             "{pct}",
@@ -168,12 +169,15 @@ export function ManuscriptPanel({
       : total;
 
   return (
-    <div className="file-tree manuscript">
-      <div className="manuscript-head">
-        <span className="manuscript-title">
+    <div className="file-tree novel-panel manuscript">
+      <div className="novel-head">
+        <span className="novel-title">
           {novel.project.title.trim() || folderName(root)}
         </span>
-        <span className="manuscript-words" title={t.manuscriptWordsLabel}>
+        <span
+          className="novel-count manuscript-words"
+          title={t.manuscriptWordsLabel}
+        >
           {words}
         </span>
       </div>
@@ -189,7 +193,7 @@ export function ManuscriptPanel({
             <PlusIcon />
           </button>
         </Tooltip>
-        <span className="manuscript-spacer" />
+        <span className="novel-spacer" />
         <Tooltip text={t.manuscriptMore}>
           <button
             type="button"
@@ -212,10 +216,10 @@ export function ManuscriptPanel({
           const key = group.act?.id ?? "";
           const isFolded = folded.has(key);
           return (
-            <div key={key || "unassigned"} className="manuscript-group">
+            <div key={key || "unassigned"} className="novel-group">
               {group.act !== null && (
                 <div
-                  className="manuscript-act"
+                  className="novel-group-head"
                   role="button"
                   tabIndex={0}
                   aria-expanded={!isFolded}
@@ -262,7 +266,7 @@ export function ManuscriptPanel({
                       <span className="tree-label">
                         {chapterTitle(chapter)}
                       </span>
-                      <span className="manuscript-count">
+                      <span className="novel-count">
                         {formatCount(
                           novel.wordsByChapter.get(chapter.id) ?? 0,
                           language,

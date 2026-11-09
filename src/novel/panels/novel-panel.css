@@ -1,0 +1,73 @@
+/* What the novel's panels share: a heading with the book's numbers, and
+   foldable groups of rows. The rows themselves are the sidebar's
+   (.tree-row, .tree-label, .tree-icon), so they read as the file tree's. */
+
+.novel-panel {
+  gap: var(--space-1);
+}
+
+.novel-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-2);
+  padding: 0 var(--space-2) var(--space-1);
+}
+
+.novel-title {
+  min-width: 0;
+  overflow: hidden;
+  font-size: var(--text-body);
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* A total beside the title: a note, not a second heading. */
+.novel-count {
+  flex-shrink: 0;
+  font-size: var(--text-caption);
+  font-variant-numeric: tabular-nums;
+  opacity: 0.65;
+  white-space: nowrap;
+}
+
+.novel-spacer {
+  flex: 1 1 auto;
+}
+
+.novel-group {
+  display: flex;
+  flex-direction: column;
+}
+
+/* One step quieter than a row: a volume, or a kind of card. */
+.novel-group-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: var(--space-2) var(--space-2) var(--space-1);
+  border-radius: var(--shape-s);
+  font-size: var(--text-footnote);
+  font-weight: 600;
+  opacity: 0.75;
+  cursor: pointer;
+}
+
+.novel-group-head:hover {
+  background: var(--ui-hover);
+}
+
+.novel-group-count {
+  margin-left: auto;
+  font-size: var(--text-caption);
+  font-variant-numeric: tabular-nums;
+  opacity: 0.6;
+}
+
+/* A file that was moved away outside the app: still listed, so it isn't
+   silently lost, but plainly not openable. */
+.is-missing {
+  font-style: italic;
+  opacity: 0.5;
+}

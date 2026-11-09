@@ -1,0 +1,56 @@
+/* The codex's own parts over the novel panels' shared ones: a search
+   field beside the toolbar, and a card's group note at the end of its row. */
+
+.codex-search {
+  display: flex;
+  flex: 1 1 auto;
+  align-items: center;
+  gap: var(--space-1);
+  min-width: 0;
+  padding: 0 var(--space-2);
+  border-radius: var(--shape-s);
+  background: var(--ui-hover);
+}
+
+.codex-search-icon {
+  flex-shrink: 0;
+  opacity: 0.5;
+}
+
+.codex-search input {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: var(--space-1) 0;
+  border: none;
+  background: none;
+  color: inherit;
+  font: inherit;
+  font-size: var(--text-secondary);
+  outline: none;
+}
+
+/* Safari draws its own clear button inside a search field; the row already
+   has the field's own background. */
+.codex-search input::-webkit-search-cancel-button {
+  appearance: none;
+}
+
+.codex-card {
+  padding-left: var(--space-3);
+}
+
+.codex-card .tree-label {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+/* The author's own heading for the card, when it has one. */
+.codex-sub {
+  flex-shrink: 0;
+  max-width: 45%;
+  overflow: hidden;
+  font-size: var(--text-caption);
+  opacity: 0.55;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

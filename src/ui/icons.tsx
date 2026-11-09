@@ -299,6 +299,42 @@ export function OutlineTabIcon({ className }: IconProps) {
   );
 }
 
+/** The codex tab: a card with a name and a line of it, as the entries are. */
+export function CodexTabIcon({ className }: IconProps) {
+  return (
+    <svg
+      className={className}
+      width="15"
+      height="15"
+      viewBox="0 0 16 16"
+      fill="none"
+    >
+      <rect
+        x="2.4"
+        y="2.2"
+        width="11.2"
+        height="11.6"
+        rx="1.8"
+        stroke="currentColor"
+        strokeWidth="1.1"
+      />
+      <circle cx="6" cy="6.2" r="1.5" fill="currentColor" />
+      <path
+        d="M4.4 10.6c0-1.1 0.9-1.7 1.6-1.7s1.6 0.6 1.6 1.7"
+        stroke="currentColor"
+        strokeWidth="1.1"
+        strokeLinecap="round"
+      />
+      <path
+        d="M9.6 6.1H11.9M9.6 9.2H11.9"
+        stroke="currentColor"
+        strokeWidth="1.1"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
 /** The window bar's sidebar toggle: a window with its left pane drawn. */
 export function SidebarToggleIcon({ className }: IconProps) {
   return (

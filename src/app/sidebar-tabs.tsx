@@ -3,7 +3,13 @@ import type { ComponentType } from "react";
 import { FileTree } from "../sidebar/FileTree";
 import { Outline } from "../sidebar/Outline";
 import { ManuscriptPanel } from "../novel/panels/ManuscriptPanel";
-import { TreeTabIcon, OutlineTabIcon, ProjectIcon } from "../ui/icons";
+import { CodexPanel } from "../novel/panels/CodexPanel";
+import {
+  TreeTabIcon,
+  OutlineTabIcon,
+  ProjectIcon,
+  CodexTabIcon,
+} from "../ui/icons";
 import { canOpenFolder, isIOSApp } from "../platform/capabilities";
 import { PHONE_QUERY } from "../ui/usePhoneLayout";
 import type { Strings } from "../i18n/strings";
@@ -87,6 +93,12 @@ const BUILT_IN: SidebarTabDef[] = [
     label: (t) => t.manuscriptTab,
     Icon: ProjectIcon,
     Panel: ManuscriptPanel,
+  },
+  {
+    id: "codex",
+    label: (t) => t.codexTab,
+    Icon: CodexTabIcon,
+    Panel: CodexPanel,
   },
   {
     id: "outline",
