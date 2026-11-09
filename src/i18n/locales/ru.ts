@@ -609,6 +609,25 @@ export default {
   boardPlotCell: "Ячейка плана",
   boardRemove: "Убрать",
   boardChapter: "Глава",
+  materialsTab: "Материалы",
+  materialsNoFolder: "Откройте папку проекта, чтобы держать здесь материалы.",
+  materialsEmpty:
+    "Пока ничего нет - заметка или картинка в materials/ этой папки появится здесь.",
+  materialsNew: "Новая заметка",
+  boardTodos: "Сделать",
+  todoHint:
+    "Все TODO, FIXME, NOTE и неотмеченные задачи рукописи, прочитанные из самого текста.",
+  todoEmpty: "В рукописи ничего не осталось.",
+  todoKindTodo: "TODO",
+  todoKindFixme: "FIXME",
+  todoKindNote: "NOTE",
+  todoKindTask: "Задача",
+  skillsInstall: "Добавить навыки письма",
+  skillsInstalled:
+    "Навыки письма добавлены в этот проект: черновик главы, проверка согласованности и разбор главы. Они под / в панели ИИ.",
+  skillsAlreadyThere: "В этом проекте уже есть навыки письма.",
+  exportBook: "Экспортировать всю книгу…",
+  exportDone: "Книга записана в выбранный файл.",
   outlineEmpty:
     "Заголовков пока нет — здесь появятся строки, начинающиеся с #.",
   treeRefresh: "Обновить",

@@ -619,6 +619,26 @@ utiliser une.
   boardPlotCell: "Case de trame",
   boardRemove: "Retirer",
   boardChapter: "Chapitre",
+  materialsTab: "Documentation",
+  materialsNoFolder:
+    "Ouvrez un dossier de projet pour y garder sa documentation.",
+  materialsEmpty:
+    "Pas encore de documentation - une note ou une image dans materials/ de ce dossier apparaît ici.",
+  materialsNew: "Nouvelle note de documentation",
+  boardTodos: "À faire",
+  todoHint:
+    "Chaque TODO, FIXME, NOTE et tâche non cochée du manuscrit, lus dans le texte lui-même.",
+  todoEmpty: "Rien n'est resté en suspens dans le manuscrit.",
+  todoKindTodo: "TODO",
+  todoKindFixme: "FIXME",
+  todoKindNote: "NOTE",
+  todoKindTask: "Tâche",
+  skillsInstall: "Ajouter les compétences d'écriture",
+  skillsInstalled:
+    "Les compétences d'écriture sont dans ce projet : brouillon de chapitre, contrôle de cohérence et relecture de chapitre. Elles sont sous / dans le panneau IA.",
+  skillsAlreadyThere: "Ce projet a déjà les compétences d'écriture.",
+  exportBook: "Exporter le livre entier…",
+  exportDone: "Le livre a été écrit dans le fichier choisi.",
   outlineEmpty:
     "Aucun titre pour l'instant. Les lignes commençant par # apparaîtront ici.",
   treeRefresh: "Actualiser",

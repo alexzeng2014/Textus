@@ -616,6 +616,26 @@ para usar una.
   boardPlotCell: "Casilla de trama",
   boardRemove: "Quitar",
   boardChapter: "Capítulo",
+  materialsTab: "Materiales",
+  materialsNoFolder:
+    "Abre una carpeta de proyecto para guardar aquí su documentación.",
+  materialsEmpty:
+    "Aún no hay documentación: una nota o una imagen en materials/ de esta carpeta aparece aquí.",
+  materialsNew: "Nueva nota de documentación",
+  boardTodos: "Pendientes",
+  todoHint:
+    "Cada TODO, FIXME, NOTE y tarea sin marcar del manuscrito, leídos del propio texto.",
+  todoEmpty: "No queda nada pendiente en el manuscrito.",
+  todoKindTodo: "TODO",
+  todoKindFixme: "FIXME",
+  todoKindNote: "NOTE",
+  todoKindTask: "Tarea",
+  skillsInstall: "Añadir las habilidades de escritura",
+  skillsInstalled:
+    "Las habilidades de escritura ya están en este proyecto: borrador de capítulo, comprobación de coherencia y revisión de capítulo. Están en / del panel de IA.",
+  skillsAlreadyThere: "Este proyecto ya tiene las habilidades de escritura.",
+  exportBook: "Exportar el libro entero…",
+  exportDone: "El libro se escribió en el archivo que elegiste.",
   outlineEmpty:
     "Aún no hay encabezados. Las líneas que empiezan con # aparecen aquí.",
   treeRefresh: "Actualizar",

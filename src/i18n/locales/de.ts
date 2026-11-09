@@ -608,6 +608,25 @@ Skills liegen im Ordner skills/ neben dieser Datei, je Skill eine
   boardPlotCell: "Handlungsfeld",
   boardRemove: "Entfernen",
   boardChapter: "Kapitel",
+  materialsTab: "Material",
+  materialsNoFolder: "Öffne einen Projektordner, um hier Recherche zu sammeln.",
+  materialsEmpty:
+    "Noch keine Recherche - eine Notiz oder ein Bild in materials/ dieses Ordners erscheint hier.",
+  materialsNew: "Neue Recherchenotiz",
+  boardTodos: "Zu tun",
+  todoHint:
+    "Jedes TODO, FIXME, NOTE und jede offene Aufgabe im Manuskript, direkt aus dem Text gelesen.",
+  todoEmpty: "Im Manuskript ist nichts offen geblieben.",
+  todoKindTodo: "TODO",
+  todoKindFixme: "FIXME",
+  todoKindNote: "NOTE",
+  todoKindTask: "Aufgabe",
+  skillsInstall: "Schreib-Skills hinzufügen",
+  skillsInstalled:
+    "Die Schreib-Skills sind in diesem Projekt: Kapitelentwurf, Konsistenzprüfung und Kapitelbesprechung. Zu finden unter / im KI-Bereich.",
+  skillsAlreadyThere: "Dieses Projekt hat die Schreib-Skills bereits.",
+  exportBook: "Das ganze Buch exportieren…",
+  exportDone: "Das Buch wurde in die gewählte Datei geschrieben.",
   outlineEmpty:
     "Noch keine Überschriften – Zeilen, die mit # beginnen, erscheinen hier.",
   treeRefresh: "Aktualisieren",

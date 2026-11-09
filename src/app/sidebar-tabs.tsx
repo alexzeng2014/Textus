@@ -4,11 +4,13 @@ import { FileTree } from "../sidebar/FileTree";
 import { Outline } from "../sidebar/Outline";
 import { ManuscriptPanel } from "../novel/panels/ManuscriptPanel";
 import { CodexPanel } from "../novel/panels/CodexPanel";
+import { MaterialsPanel } from "../novel/panels/MaterialsPanel";
 import {
   TreeTabIcon,
   OutlineTabIcon,
   ProjectIcon,
   CodexTabIcon,
+  PaperclipIcon,
 } from "../ui/icons";
 import { canOpenFolder, isIOSApp } from "../platform/capabilities";
 import { PHONE_QUERY } from "../ui/usePhoneLayout";
@@ -99,6 +101,12 @@ const BUILT_IN: SidebarTabDef[] = [
     label: (t) => t.codexTab,
     Icon: CodexTabIcon,
     Panel: CodexPanel,
+  },
+  {
+    id: "materials",
+    label: (t) => t.materialsTab,
+    Icon: PaperclipIcon,
+    Panel: MaterialsPanel,
   },
   {
     id: "outline",

@@ -14,6 +14,8 @@ import {
 } from "../../ui/icons";
 import { Tooltip } from "../../ui/Tooltip";
 import { openBoard } from "../board-store";
+import { bookMarkdown } from "../export";
+import { installNovelSkills } from "../skills";
 import { useNovelProject } from "../useNovelProject";
 import { absoluteChapterPath } from "../novel-project";
 import { groupChapters, renameChapter, setChapterAct } from "../chapters";
@@ -121,6 +123,43 @@ export function ManuscriptPanel({
     });
     if (title === null) return;
     novel.update((project) => renameChapter(project, chapterId, title.trim()));
+  };
+
+  /** Puts the novel's writing skills in the project's own skills folder, so
+   *  they turn up in the AI panel's `/` menu. Existing ones are left alone. */
+  const addSkills = async () => {
+    try {
+      const written = await installNovelSkills(root);
+      void showMessage(
+        written.length === 0 ? t.skillsAlreadyThere : t.skillsInstalled,
+      );
+    } catch (err) {
+      void showMessage(String(err));
+    }
+  };
+
+  /** The whole book as one Markdown file, in manuscript order. */
+  const exportBook = async () => {
+    try {
+      const chapters = await Promise.all(
+        novel.project.chapters.map(async (chapter) => ({
+          title: chapterTitle(chapter),
+          actTitle:
+            novel.project.acts.find((act) => act.id === chapter.actId)?.title ??
+            null,
+          text: await fs
+            .readTextFile(absoluteChapterPath(root, chapter.path))
+            .catch(() => ""),
+        })),
+      );
+      const name = novel.project.title.trim() || folderName(root);
+      const target = await fs.saveFileDialog(`${name}.md`, root);
+      if (!target) return;
+      await fs.writeTextFile(target, bookMarkdown(name, chapters));
+      void showMessage(t.exportDone);
+    } catch (err) {
+      void showMessage(`${t.exportFailed} ${String(err)}`);
+    }
   };
 
   const chapterItems = (chapterId: string): ContextMenuEntry[] => {
@@ -303,6 +342,9 @@ export function ManuscriptPanel({
                 label: t.manuscriptSync,
                 onSelect: () => void novel.syncFromDisk(),
               },
+              "separator",
+              { label: t.skillsInstall, onSelect: () => void addSkills() },
+              { label: t.exportBook, onSelect: () => void exportBook() },
             ]}
             onClose={() => setToolsMenu(null)}
           />

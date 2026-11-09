@@ -236,3 +236,27 @@
 .board-flip {
   transform: rotate(180deg);
 }
+
+/* A note left for later: what kind it is, then where it lives. */
+.todo-kind {
+  flex-shrink: 0;
+  min-width: 3.5rem;
+  font-size: var(--text-caption);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  opacity: 0.7;
+}
+
+/* A mistake to fix reads louder than a note to self. */
+.todo-fixme {
+  color: var(--ui-accent);
+  opacity: 1;
+}
+
+.todo-where {
+  flex-shrink: 0;
+  font-size: var(--text-caption);
+  font-variant-numeric: tabular-nums;
+  opacity: 0.5;
+  white-space: nowrap;
+}

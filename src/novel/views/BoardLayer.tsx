@@ -8,9 +8,10 @@ import { useStory } from "../useStory";
 import { PlotGridTab } from "./PlotGridTab";
 import { StorylinesTab } from "./StorylinesTab";
 import { TimelineTab } from "./TimelineTab";
+import { TodoTab } from "./TodoTab";
 import "./board.css";
 
-type BoardTab = "storylines" | "timeline" | "plot";
+type BoardTab = "storylines" | "timeline" | "plot" | "todos";
 
 /** The board over the window. Its contents load only while it is open: a
  *  window that never opens it reads no chapters. */
@@ -53,6 +54,7 @@ function Board({
     { id: "storylines", label: t.boardStorylines },
     { id: "timeline", label: t.boardTimeline },
     { id: "plot", label: t.boardPlot },
+    { id: "todos", label: t.boardTodos },
   ];
   const shared = {
     root: root ?? "",
@@ -103,8 +105,10 @@ function Board({
           <StorylinesTab {...shared} />
         ) : tab === "timeline" ? (
           <TimelineTab {...shared} />
-        ) : (
+        ) : tab === "plot" ? (
           <PlotGridTab {...shared} />
+        ) : (
+          <TodoTab {...shared} />
         )}
       </div>
     </div>

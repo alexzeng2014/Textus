@@ -604,6 +604,26 @@ Habilidades ficam na pasta skills/ ao lado deste arquivo, um arquivo
   boardPlotCell: "Célula de trama",
   boardRemove: "Remover",
   boardChapter: "Capítulo",
+  materialsTab: "Materiais",
+  materialsNoFolder:
+    "Abra uma pasta de projeto para guardar aqui a documentação.",
+  materialsEmpty:
+    "Ainda não há documentação - uma nota ou uma imagem em materials/ desta pasta aparece aqui.",
+  materialsNew: "Nova nota de documentação",
+  boardTodos: "A fazer",
+  todoHint:
+    "Todos os TODO, FIXME, NOTE e tarefas por marcar do manuscrito, lidos do próprio texto.",
+  todoEmpty: "Não ficou nada pendente no manuscrito.",
+  todoKindTodo: "TODO",
+  todoKindFixme: "FIXME",
+  todoKindNote: "NOTE",
+  todoKindTask: "Tarefa",
+  skillsInstall: "Adicionar as competências de escrita",
+  skillsInstalled:
+    "As competências de escrita estão neste projeto: esboço de capítulo, verificação de coerência e revisão de capítulo. Estão em / no painel de IA.",
+  skillsAlreadyThere: "Este projeto já tem as competências de escrita.",
+  exportBook: "Exportar o livro inteiro…",
+  exportDone: "O livro foi escrito no ficheiro que escolheu.",
   outlineEmpty: "Ainda não há títulos. Linhas que começam com # aparecem aqui.",
   treeRefresh: "Atualizar",
   menuOpenFolder: "Abrir Projeto…",

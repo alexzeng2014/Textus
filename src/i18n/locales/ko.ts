@@ -572,6 +572,25 @@ ${AI_NAME}에게 주는 글쓰기 지침으로, 모든 문서에 적용됩니다
   boardPlotCell: "플롯 칸",
   boardRemove: "삭제",
   boardChapter: "장",
+  materialsTab: "자료",
+  materialsNoFolder: "프로젝트 폴더를 열면 여기에 자료를 둘 수 있습니다.",
+  materialsEmpty:
+    "아직 자료가 없습니다. 이 폴더의 materials/에 노트나 이미지를 넣으면 여기에 표시됩니다.",
+  materialsNew: "자료 노트 만들기",
+  boardTodos: "할 일",
+  todoHint:
+    "원고의 모든 TODO, FIXME, NOTE와 체크하지 않은 작업을 본문에서 바로 읽어 옵니다.",
+  todoEmpty: "원고에 남은 일이 없습니다.",
+  todoKindTodo: "TODO",
+  todoKindFixme: "FIXME",
+  todoKindNote: "NOTE",
+  todoKindTask: "작업",
+  skillsInstall: "집필 스킬 추가",
+  skillsInstalled:
+    "집필 스킬을 이 프로젝트에 추가했습니다: 장 초안, 일관성 점검, 장 검토. AI 패널에서 / 를 입력하면 보입니다.",
+  skillsAlreadyThere: "이 프로젝트에는 이미 집필 스킬이 있습니다.",
+  exportBook: "책 전체 내보내기…",
+  exportDone: "책 전체를 선택한 파일에 썼습니다.",
   outlineEmpty:
     "아직 제목이 없습니다. # 기호로 시작하는 줄이 여기에 표시됩니다.",
   treeRefresh: "새로 고침",
