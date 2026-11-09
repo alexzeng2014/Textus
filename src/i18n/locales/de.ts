@@ -548,6 +548,24 @@ Skills liegen im Ordner skills/ neben dieser Datei, je Skill eine
   outlineTab: "Gliederung",
   treeParentFolder: "Übergeordneter Ordner",
   treeEmptyDraft: "Speichere dieses Dokument, dann erscheint hier sein Ordner.",
+  manuscriptTab: "Manuskript",
+  manuscriptNoFolder:
+    "Öffne einen Projektordner, um hier die Kapitel zu sehen.",
+  manuscriptEmpty:
+    "Noch keine Kapitel - jedes Markdown-Dokument in diesem Ordner erscheint hier.",
+  manuscriptNewChapter: "Neues Kapitel",
+  manuscriptNewAct: "Neuer Teil",
+  manuscriptRename: "Kapitel umbenennen",
+  manuscriptRenameOk: "Umbenennen",
+  manuscriptMoveTo: "In Teil verschieben",
+  manuscriptUnassigned: "Ohne Teil",
+  manuscriptMissing:
+    "Das Dokument dieses Kapitels liegt nicht mehr im Projektordner.",
+  manuscriptSync: "Kapitel auf der Festplatte suchen",
+  manuscriptMore: "Mehr",
+  manuscriptAdd: "Hinzufügen",
+  manuscriptWordsLabel: "Wörter",
+  manuscriptGoal: "{pct} % von {of}",
   outlineEmpty:
     "Noch keine Überschriften – Zeilen, die mit # beginnen, erscheinen hier.",
   treeRefresh: "Aktualisieren",

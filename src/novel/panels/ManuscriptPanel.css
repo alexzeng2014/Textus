@@ -1,0 +1,89 @@
+/* The manuscript's own rows, over the file tree's (.file-tree, .tree-row,
+   .tree-toolbar are its): a book's heading, and a chapter's length at the
+   end of its row. Every size and colour is a token, as the sidebar's are. */
+
+.manuscript {
+  gap: var(--space-1);
+}
+
+.manuscript-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-2);
+  padding: 0 var(--space-2) var(--space-1);
+}
+
+.manuscript-title {
+  min-width: 0;
+  overflow: hidden;
+  font-size: var(--text-body);
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* The book's total, and how far into the goal it is: a note beside the
+   title, not a second heading. */
+.manuscript-words {
+  flex-shrink: 0;
+  font-size: var(--text-caption);
+  font-variant-numeric: tabular-nums;
+  opacity: 0.65;
+  white-space: nowrap;
+}
+
+.manuscript-spacer {
+  flex: 1 1 auto;
+}
+
+.manuscript-group {
+  display: flex;
+  flex-direction: column;
+}
+
+/* A volume: a heading row that folds, one step quieter than a chapter. */
+.manuscript-act {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: var(--space-2) var(--space-2) var(--space-1);
+  border-radius: var(--shape-s);
+  font-size: var(--text-footnote);
+  font-weight: 600;
+  opacity: 0.75;
+  cursor: pointer;
+}
+
+.manuscript-act:hover {
+  background: var(--ui-hover);
+}
+
+/* Chapters sit under their volume, so the tree reads as one book. */
+.manuscript-chapter {
+  padding-left: var(--space-3);
+}
+
+.manuscript-chapter .tree-label {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.manuscript-icon {
+  opacity: 0.5;
+}
+
+.manuscript-count {
+  flex-shrink: 0;
+  margin-left: auto;
+  font-size: var(--text-caption);
+  font-variant-numeric: tabular-nums;
+  opacity: 0.55;
+}
+
+/* A chapter whose document was moved away outside the app: still listed,
+   so it isn't silently lost, but plainly not openable. */
+.is-missing {
+  font-style: italic;
+  opacity: 0.5;
+}

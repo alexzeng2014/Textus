@@ -556,6 +556,24 @@ para usar una.
   outlineTab: "Esquema",
   treeParentFolder: "Carpeta superior",
   treeEmptyDraft: "Guarda este documento y su carpeta aparecerá aquí.",
+  manuscriptTab: "Manuscrito",
+  manuscriptNoFolder:
+    "Abre una carpeta de proyecto para ver aquí sus capítulos.",
+  manuscriptEmpty:
+    "Aún no hay capítulos: cada documento Markdown de esta carpeta aparece aquí.",
+  manuscriptNewChapter: "Nuevo capítulo",
+  manuscriptNewAct: "Nueva parte",
+  manuscriptRename: "Renombrar capítulo",
+  manuscriptRenameOk: "Renombrar",
+  manuscriptMoveTo: "Mover a parte",
+  manuscriptUnassigned: "Sin parte",
+  manuscriptMissing:
+    "El documento de ese capítulo ya no está en la carpeta del proyecto.",
+  manuscriptSync: "Buscar capítulos en el disco",
+  manuscriptMore: "Más",
+  manuscriptAdd: "Añadir",
+  manuscriptWordsLabel: "Palabras",
+  manuscriptGoal: "{pct} % de {of}",
   outlineEmpty:
     "Aún no hay encabezados. Las líneas que empiezan con # aparecen aquí.",
   treeRefresh: "Actualizar",

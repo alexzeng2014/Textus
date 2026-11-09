@@ -2,7 +2,8 @@ import { getUiState, setUiState } from "../storage/ui-state";
 import type { ComponentType } from "react";
 import { FileTree } from "../sidebar/FileTree";
 import { Outline } from "../sidebar/Outline";
-import { TreeTabIcon, OutlineTabIcon } from "../ui/icons";
+import { ManuscriptPanel } from "../novel/panels/ManuscriptPanel";
+import { TreeTabIcon, OutlineTabIcon, ProjectIcon } from "../ui/icons";
 import { canOpenFolder, isIOSApp } from "../platform/capabilities";
 import { PHONE_QUERY } from "../ui/usePhoneLayout";
 import type { Strings } from "../i18n/strings";
@@ -80,6 +81,12 @@ const BUILT_IN: SidebarTabDef[] = [
     label: (t) => t.treeTab,
     Icon: TreeTabIcon,
     Panel: FilesPanel,
+  },
+  {
+    id: "manuscript",
+    label: (t) => t.manuscriptTab,
+    Icon: ProjectIcon,
+    Panel: ManuscriptPanel,
   },
   {
     id: "outline",

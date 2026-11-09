@@ -559,6 +559,24 @@ utiliser une.
   outlineTab: "Plan",
   treeParentFolder: "Dossier parent",
   treeEmptyDraft: "Enregistrez ce document pour voir son dossier ici.",
+  manuscriptTab: "Manuscrit",
+  manuscriptNoFolder:
+    "Ouvrez un dossier de projet pour voir ses chapitres ici.",
+  manuscriptEmpty:
+    "Pas encore de chapitres - chaque document Markdown de ce dossier apparaît ici.",
+  manuscriptNewChapter: "Nouveau chapitre",
+  manuscriptNewAct: "Nouvelle partie",
+  manuscriptRename: "Renommer le chapitre",
+  manuscriptRenameOk: "Renommer",
+  manuscriptMoveTo: "Déplacer vers une partie",
+  manuscriptUnassigned: "Sans partie",
+  manuscriptMissing:
+    "Le document de ce chapitre n'est plus dans le dossier du projet.",
+  manuscriptSync: "Chercher les chapitres sur le disque",
+  manuscriptMore: "Plus",
+  manuscriptAdd: "Ajouter",
+  manuscriptWordsLabel: "Mots",
+  manuscriptGoal: "{pct} % de {of}",
   outlineEmpty:
     "Aucun titre pour l'instant. Les lignes commençant par # apparaîtront ici.",
   treeRefresh: "Actualiser",
