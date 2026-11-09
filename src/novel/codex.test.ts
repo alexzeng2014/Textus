@@ -1,4 +1,4 @@
-import { describe, expect, it } from "vitest";
+﻿import { describe, expect, it } from "vitest";
 import {
   CODEX_DIR,
   cardsOfKind,
@@ -17,7 +17,7 @@ import type { CodexCard } from "./codex";
 const card = (over: Partial<CodexCard> = {}): CodexCard => ({
   kind: "character",
   slug: "li-si",
-  path: ".textus/novel/codex/character/li-si.md",
+  path: "codex/character/li-si.md",
   title: "Li Si",
   aliases: [],
   group: "",
@@ -27,28 +27,24 @@ const card = (over: Partial<CodexCard> = {}): CodexCard => ({
 
 describe("paths", () => {
   it("puts a kind's cards in its own folder", () => {
-    expect(CODEX_DIR).toBe(".textus/novel/codex");
-    expect(codexKindDir("place")).toBe(".textus/novel/codex/place");
-    expect(codexCardPath("lore", "the-tide")).toBe(
-      ".textus/novel/codex/lore/the-tide.md",
-    );
+    expect(CODEX_DIR).toBe("codex");
+    expect(codexKindDir("place")).toBe("codex/place");
+    expect(codexCardPath("lore", "the-tide")).toBe("codex/lore/the-tide.md");
   });
 
   it("reads a card's kind and slug back from its path", () => {
-    expect(parseCardPath(".textus/novel/codex/character/li-si.md")).toEqual({
+    expect(parseCardPath("codex/character/li-si.md")).toEqual({
       kind: "character",
       slug: "li-si",
     });
   });
 
   it("refuses a file that isn't a card", () => {
-    expect(parseCardPath(".textus/novel/codex/character/li-si.txt")).toBeNull();
-    expect(parseCardPath(".textus/novel/codex/nonsense/x.md")).toBeNull();
+    expect(parseCardPath("codex/character/li-si.txt")).toBeNull();
+    expect(parseCardPath("codex/nonsense/x.md")).toBeNull();
     expect(parseCardPath("chapters/li-si.md")).toBeNull();
     // A card in a folder of its own is not the codex's.
-    expect(
-      parseCardPath(".textus/novel/codex/character/nested/li-si.md"),
-    ).toBeNull();
+    expect(parseCardPath("codex/character/nested/li-si.md")).toBeNull();
   });
 
   it("knows the kinds it accepts", () => {
@@ -64,7 +60,7 @@ describe("slugs", () => {
   });
 
   it("keeps a Chinese name readable", () => {
-    expect(slugFromTitle("张三")).toBe("张三");
+    expect(slugFromTitle("寮犱笁")).toBe("寮犱笁");
   });
 
   it("falls back to a usable name for punctuation alone", () => {
@@ -82,23 +78,23 @@ describe("slugs", () => {
 describe("cardFromMarkdown", () => {
   it("reads the title, group, aliases and body", () => {
     const read = cardFromMarkdown(
-      ".textus/novel/codex/character/li-si.md",
-      "---\ntitle: 李四\ngroup: 主角阵营\naliases: 阿四, 老李\n---\n\n师父。\n",
+      "codex/character/li-si.md",
+      "---\ntitle: 鏉庡洓\ngroup: 涓昏闃佃惀\naliases: 闃垮洓, 鑰佹潕\n---\n\n甯堢埗銆俓n",
     );
     expect(read).toEqual({
       kind: "character",
       slug: "li-si",
-      path: ".textus/novel/codex/character/li-si.md",
-      title: "李四",
-      group: "主角阵营",
-      aliases: ["阿四", "老李"],
-      body: "师父。\n",
+      path: "codex/character/li-si.md",
+      title: "鏉庡洓",
+      group: "涓昏闃佃惀",
+      aliases: ["闃垮洓", "鑰佹潕"],
+      body: "甯堢埗銆俓n",
     });
   });
 
   it("falls back to the file's name for an untitled card", () => {
     const read = cardFromMarkdown(
-      ".textus/novel/codex/place/the-tides.md",
+      "codex/place/the-tides.md",
       "no front matter",
     );
     expect(read?.title).toBe("the tides");
@@ -128,10 +124,10 @@ describe("cardToMarkdown", () => {
 
   it("round-trips a card through its document", () => {
     const original = card({
-      title: "李四",
-      group: "主角阵营",
-      aliases: ["阿四", "老李"],
-      body: "师父。\n",
+      title: "鏉庡洓",
+      group: "涓昏闃佃惀",
+      aliases: ["闃垮洓", "鑰佹潕"],
+      body: "甯堢埗銆俓n",
     });
     expect(cardFromMarkdown(original.path, cardToMarkdown(original))).toEqual(
       original,

@@ -592,6 +592,9 @@ utiliser une.
   codexRename: "Renommer la fiche",
   codexRenameOk: "Renommer",
   codexOpen: "Ouvrir",
+  completionCodex: "Codex",
+  codexReferences: "Chercher les références",
+  codexNoReferences: "Aucun chapitre ne renvoie encore à cette fiche.",
   outlineEmpty:
     "Aucun titre pour l'instant. Les lignes commençant par # apparaîtront ici.",
   treeRefresh: "Actualiser",

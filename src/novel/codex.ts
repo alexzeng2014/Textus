@@ -1,7 +1,12 @@
 /** The codex: who and what the book is about, one Markdown document each,
- *  under `.textus/novel/codex/<kind>/`. The document is the card - its
- *  front matter names it, its body is the author's free description - so
- *  the whole codex stays readable and editable outside the app. */
+ *  under `codex/<kind>/`. The document is the card - its front matter names
+ *  it, its body is the author's free description - so the whole codex stays
+ *  readable and editable outside the app.
+ *
+ *  Visible rather than under `.textus`: the app indexes only visible
+ *  documents, and a card nothing can link to is a card nobody references.
+ *  The folder is left out of the manuscript (novel-project.ts) so cards
+ *  aren't counted as chapters. */
 
 import {
   joinFrontMatter,
@@ -15,7 +20,7 @@ export const CODEX_KINDS = ["character", "place", "object", "lore"] as const;
 export type CodexKind = (typeof CODEX_KINDS)[number];
 
 /** Where the codex lives, relative to the project root. */
-export const CODEX_DIR = ".textus/novel/codex";
+export const CODEX_DIR = "codex";
 
 /** One entry: a person, a place, a thing, or a piece of the world. */
 export interface CodexCard {
@@ -43,7 +48,7 @@ export const codexKindDir = (kind: CodexKind): string => `${CODEX_DIR}/${kind}`;
 export const codexCardPath = (kind: CodexKind, slug: string): string =>
   `${codexKindDir(kind)}/${slug}.md`;
 
-const CARD_PATH = /^\.textus\/novel\/codex\/([a-z]+)\/([^/]+)\.md$/;
+const CARD_PATH = /^codex\/([a-z]+)\/([^/]+)\.md$/;
 
 /** The kind and slug a path names, or null for a file that isn't a card. */
 export function parseCardPath(

@@ -6,15 +6,9 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { fs } from "../platform/ipc";
 import { absoluteChapterPath } from "./novel-project";
 import { joinFrontMatter, splitFrontMatter } from "./front-matter";
-import {
-  CODEX_KINDS,
-  cardFromMarkdown,
-  cardToMarkdown,
-  codexCardPath,
-  codexKindDir,
-  uniqueSlug,
-} from "./codex";
+import { cardToMarkdown, codexCardPath, uniqueSlug } from "./codex";
 import type { CodexCard, CodexKind } from "./codex";
+import { readCodex } from "./codex-files";
 
 export interface CodexState {
   cards: readonly CodexCard[];
@@ -22,38 +16,6 @@ export interface CodexState {
 }
 
 const NOTHING: CodexState = { cards: [], loading: false };
-
-/** Every card under the project's codex, whichever kind's folder holds it.
- *  A folder that isn't there (a project without a codex yet) is not an
- *  error: it simply has no cards. */
-async function readCodex(root: string): Promise<CodexCard[]> {
-  const cards: CodexCard[] = [];
-  for (const kind of CODEX_KINDS) {
-    let entries;
-    try {
-      entries = await fs.listDir(absoluteChapterPath(root, codexKindDir(kind)));
-    } catch {
-      continue;
-    }
-    const found = await Promise.all(
-      entries
-        .filter((entry) => !entry.is_dir && /\.md$/i.test(entry.name))
-        .map(async (entry) => {
-          const path = codexCardPath(kind, entry.name.replace(/\.md$/i, ""));
-          try {
-            return cardFromMarkdown(
-              path,
-              await fs.readTextFile(absoluteChapterPath(root, path)),
-            );
-          } catch {
-            return null;
-          }
-        }),
-    );
-    for (const card of found) if (card) cards.push(card);
-  }
-  return cards;
-}
 
 /** A folder's codex, with the ways a card is made and renamed. */
 export function useCodex(root: string | null) {

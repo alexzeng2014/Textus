@@ -589,6 +589,9 @@ para usar una.
   codexRename: "Renombrar ficha",
   codexRenameOk: "Renombrar",
   codexOpen: "Abrir",
+  completionCodex: "Códice",
+  codexReferences: "Buscar referencias",
+  codexNoReferences: "Ningún capítulo enlaza todavía con esta ficha.",
   outlineEmpty:
     "Aún no hay encabezados. Las líneas que empiezan con # aparecen aquí.",
   treeRefresh: "Actualizar",

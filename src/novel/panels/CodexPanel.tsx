@@ -1,7 +1,8 @@
 import { useState } from "react";
 import type { SidebarTabProps } from "../../app/sidebar-tabs";
 import { useSettings } from "../../prefs/SettingsContext";
-import { showPrompt } from "../../ui/app-dialog";
+import { fs } from "../../platform/ipc";
+import { showMessage, showPrompt } from "../../ui/app-dialog";
 import { ContextMenu } from "../../ui/ContextMenu";
 import { Presence } from "../../ui/usePresence";
 import { ChevronIcon, PlusIcon, SearchIcon } from "../../ui/icons";
@@ -9,6 +10,8 @@ import { Tooltip } from "../../ui/Tooltip";
 import { CODEX_KINDS, cardsOfKind, matchesCard } from "../codex";
 import type { CodexCard, CodexKind } from "../codex";
 import { absoluteChapterPath } from "../novel-project";
+import { documentsMentioning } from "../references";
+import type { ContextMenuEntry } from "../../ui/ContextMenu";
 import { useCodex } from "../useCodex";
 import "./novel-panel.css";
 import "./CodexPanel.css";
@@ -43,6 +46,12 @@ export function CodexPanel({ openFolder, onOpenFile }: SidebarTabProps) {
     y: number;
     card: CodexCard;
   } | null>(null);
+  /** The chapters that link to a card, listed where the card was. */
+  const [refsMenu, setRefsMenu] = useState<{
+    x: number;
+    y: number;
+    items: ContextMenuEntry[];
+  } | null>(null);
 
   if (!root) {
     return <div className="clipboard-empty">{t.codexNoFolder}</div>;
@@ -74,6 +83,32 @@ export function CodexPanel({ openFolder, onOpenFile }: SidebarTabProps) {
     });
     if (title === null || !title.trim()) return;
     await codex.setCardFields(card, { title: title.trim() });
+  };
+
+  /** Which chapters link to a card, read from the prose rather than from an
+   *  index: every document of the folder is looked at, so a mention written
+   *  by hand counts the same as one the `@` list inserted. */
+  const findReferences = async (card: CodexCard, x: number, y: number) => {
+    let documents;
+    try {
+      ({ documents } = await fs.folderDocuments(root));
+    } catch {
+      void showMessage(t.codexNoReferences);
+      return;
+    }
+    const found = documentsMentioning(documents, card);
+    if (found.length === 0) {
+      void showMessage(t.codexNoReferences);
+      return;
+    }
+    setRefsMenu({
+      x,
+      y,
+      items: found.slice(0, 30).map((document) => ({
+        label: document.rel.replace(/\.md$/i, ""),
+        onSelect: () => onOpenFile(document.path),
+      })),
+    });
   };
 
   const toggle = (key: string) =>
@@ -197,11 +232,30 @@ export function CodexPanel({ openFolder, onOpenFile }: SidebarTabProps) {
             items={[
               { label: t.codexOpen, onSelect: () => open(cardMenu.card) },
               {
+                label: t.codexReferences,
+                onSelect: () =>
+                  void findReferences(
+                    cardMenu.card,
+                    cardMenu.x + 12,
+                    cardMenu.y + 8,
+                  ),
+              },
+              {
                 label: t.codexRename,
                 onSelect: () => void rename(cardMenu.card),
               },
             ]}
             onClose={() => setCardMenu(null)}
+          />
+        )}
+      </Presence>
+      <Presence show={refsMenu !== null} exitMs={120}>
+        {refsMenu && (
+          <ContextMenu
+            x={refsMenu.x}
+            y={refsMenu.y}
+            items={refsMenu.items}
+            onClose={() => setRefsMenu(null)}
           />
         )}
       </Presence>

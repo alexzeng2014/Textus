@@ -545,6 +545,9 @@ ${AI_NAME}에게 주는 글쓰기 지침으로, 모든 문서에 적용됩니다
   codexRename: "카드 이름 바꾸기",
   codexRenameOk: "이름 바꾸기",
   codexOpen: "열기",
+  completionCodex: "설정",
+  codexReferences: "참조 찾기",
+  codexNoReferences: "아직 이 카드를 참조하는 장이 없습니다.",
   outlineEmpty:
     "아직 제목이 없습니다. # 기호로 시작하는 줄이 여기에 표시됩니다.",
   treeRefresh: "새로 고침",

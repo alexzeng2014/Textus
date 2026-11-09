@@ -101,9 +101,10 @@ export async function writeNovelProject(
   );
 }
 
-/** Folders never searched for chapters: our own data, and what a project
+/** Folders never searched for chapters: our own data, the codex (whose cards
+ *  are documents like any other, but not chapters), and what a project
  *  dragged in from a repository carries. */
-const SKIP_DIRS = new Set([".textus", ".git", "node_modules"]);
+const SKIP_DIRS = new Set([".textus", ".git", "node_modules", "codex"]);
 /** A deep tree is a nested project, not a manuscript. */
 const MAX_DEPTH = 6;
 const CHAPTER_FILE = /\.(md|markdown)$/i;

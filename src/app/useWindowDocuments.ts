@@ -3,6 +3,10 @@ import {
   registerNoteCompletion,
   setNoteCompletionRoot,
 } from "../sidebar/note-completion";
+import {
+  registerCodexCompletion,
+  setCodexCompletionRoot,
+} from "../novel/codex-completion";
 import { useTabDragMerge } from "./tabs/useTabDragMerge";
 import { useAutosave } from "../document/autosave";
 import { useLastCarets } from "../document/last-carets";
@@ -90,6 +94,21 @@ export function useWindowDocuments({
   useEffect(() => {
     setNoteCompletionRoot(folderRoot);
     return registerNoteCompletion(() => t.completionNotes);
+  }, [folderRoot, t]);
+  // `@` lists the folder's codex: the book's own people and places.
+  useEffect(() => {
+    setCodexCompletionRoot(folderRoot);
+    return registerCodexCompletion(
+      () => t.completionCodex,
+      (kind) =>
+        kind === "character"
+          ? t.codexKindCharacter
+          : kind === "place"
+            ? t.codexKindPlace
+            : kind === "object"
+              ? t.codexKindObject
+              : t.codexKindLore,
+    );
   }, [folderRoot, t]);
   usePluginWindow({
     t,

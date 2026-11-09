@@ -580,6 +580,9 @@ Skills liegen im Ordner skills/ neben dieser Datei, je Skill eine
   codexRename: "Karte umbenennen",
   codexRenameOk: "Umbenennen",
   codexOpen: "Öffnen",
+  completionCodex: "Codex",
+  codexReferences: "Verweise finden",
+  codexNoReferences: "Noch verweist kein Kapitel auf diese Karte.",
   outlineEmpty:
     "Noch keine Überschriften – Zeilen, die mit # beginnen, erscheinen hier.",
   treeRefresh: "Aktualisieren",

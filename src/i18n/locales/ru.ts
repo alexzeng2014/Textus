@@ -582,6 +582,9 @@ export default {
   codexRename: "Переименовать карточку",
   codexRenameOk: "Переименовать",
   codexOpen: "Открыть",
+  completionCodex: "Кодекс",
+  codexReferences: "Найти ссылки",
+  codexNoReferences: "Пока ни одна глава не ссылается на эту карточку.",
   outlineEmpty:
     "Заголовков пока нет — здесь появятся строки, начинающиеся с #.",
   treeRefresh: "Обновить",
