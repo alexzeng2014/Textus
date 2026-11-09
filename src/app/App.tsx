@@ -6,6 +6,7 @@ import { AppDialogHost } from "../ui/app-dialog";
 import { WindowBar } from "./WindowBar";
 import { isIOSApp } from "../platform/capabilities";
 import { SettingsLayer } from "./SettingsLayer";
+import { BoardLayer } from "../novel/views/BoardLayer";
 import { usePhoneLayout } from "../ui/usePhoneLayout";
 import { useSettings } from "../prefs/SettingsContext";
 import { formatCombo } from "../utils/shortcuts";
@@ -215,6 +216,11 @@ function App() {
             t={t}
           />
         )}
+
+        <BoardLayer
+          root={openFolder.folder}
+          onOpenFile={(path) => void openFile(path)}
+        />
 
         <SettingsLayer
           opening={settingsOpening}

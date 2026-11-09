@@ -1,0 +1,238 @@
+/* The board: a full-window view of how the book runs, over the editor and
+   closed again with Escape or the corner button. */
+
+.novel-board {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-modal);
+  display: flex;
+  flex-direction: column;
+  background: var(--ui-bg);
+  color: var(--ui-text);
+}
+
+.novel-board-head {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  border-bottom: 1px solid var(--ui-border);
+}
+
+.novel-board-title {
+  font-size: var(--text-title);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.novel-board-tabs {
+  display: flex;
+  flex: 1 1 auto;
+  gap: var(--space-1);
+  min-width: 0;
+}
+
+.novel-board-tab {
+  padding: var(--space-1) var(--space-2);
+  border: none;
+  border-radius: var(--shape-s);
+  background: none;
+  color: inherit;
+  font-size: var(--text-control);
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.novel-board-tab:hover {
+  background: var(--ui-hover);
+  opacity: 1;
+}
+
+.novel-board-tab.is-current {
+  background: var(--ui-selected);
+  color: var(--ui-selected-text);
+  opacity: 1;
+}
+
+.novel-board-body {
+  flex: 1 1 auto;
+  overflow: auto;
+  padding: var(--space-3);
+}
+
+.board-tab {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  max-width: 60rem;
+  margin: 0 auto;
+}
+
+.board-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.board-add {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: var(--space-1) var(--space-2);
+  border: 1px solid var(--ui-border);
+  border-radius: var(--shape-s);
+  background: none;
+  color: inherit;
+  font-size: var(--text-control);
+  cursor: pointer;
+}
+
+.board-add:hover {
+  background: var(--ui-hover);
+}
+
+.board-link {
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--ui-accent);
+  font-size: var(--text-caption);
+  cursor: pointer;
+}
+
+.board-section {
+  overflow: hidden;
+  border: 1px solid var(--ui-border);
+  border-radius: var(--shape-m);
+}
+
+.board-section-head {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  background: var(--ui-subtle);
+}
+
+.board-section-title {
+  font-size: var(--text-control);
+  font-weight: 600;
+}
+
+.board-section-count {
+  font-size: var(--text-caption);
+  font-variant-numeric: tabular-nums;
+  opacity: 0.6;
+}
+
+.board-section-tools {
+  display: flex;
+  gap: var(--space-2);
+  margin-left: auto;
+}
+
+.board-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-1) var(--space-3);
+  border-top: 1px solid var(--ui-border);
+}
+
+/* The chapter's name, and the way into it: a button that reads as text. */
+.board-row-title {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  border: none;
+  background: none;
+  color: inherit;
+  font-size: var(--text-body);
+  text-align: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.board-row-title:hover {
+  color: var(--ui-accent);
+}
+
+.board-select {
+  padding: var(--space-1) var(--space-2);
+  border: 1px solid var(--ui-border);
+  border-radius: var(--shape-s);
+  background: var(--ui-bg);
+  color: inherit;
+  font-size: var(--text-secondary);
+}
+
+.board-note,
+.board-empty {
+  padding: var(--space-3);
+  font-size: var(--text-secondary);
+  opacity: 0.65;
+}
+
+.board-hint {
+  margin: 0;
+  font-size: var(--text-secondary);
+  opacity: 0.65;
+}
+
+.board-order {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.board-order-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-1) 0;
+  border-bottom: 1px solid var(--ui-border);
+}
+
+.board-order-index {
+  width: 2rem;
+  font-size: var(--text-caption);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  opacity: 0.5;
+}
+
+.board-order-tools {
+  display: flex;
+  gap: var(--space-1);
+}
+
+.board-icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  border: none;
+  border-radius: var(--shape-s);
+  background: none;
+  color: inherit;
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.board-icon-button:hover:not(:disabled) {
+  background: var(--ui-hover);
+  opacity: 1;
+}
+
+.board-icon-button:disabled {
+  opacity: 0.25;
+  cursor: default;
+}
+
+.board-flip {
+  transform: rotate(180deg);
+}

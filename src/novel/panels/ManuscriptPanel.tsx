@@ -13,6 +13,7 @@ import {
   PlusIcon,
 } from "../../ui/icons";
 import { Tooltip } from "../../ui/Tooltip";
+import { openBoard } from "../board-store";
 import { useNovelProject } from "../useNovelProject";
 import { absoluteChapterPath } from "../novel-project";
 import { groupChapters, renameChapter, setChapterAct } from "../chapters";
@@ -296,6 +297,7 @@ export function ManuscriptPanel({
             x={toolsMenu.x}
             y={toolsMenu.y}
             items={[
+              { label: t.boardTitle, onSelect: openBoard },
               { label: t.manuscriptNewAct, onSelect: () => void newAct() },
               {
                 label: t.manuscriptSync,

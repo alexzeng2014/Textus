@@ -1,0 +1,65 @@
+/* A chapter's plot grid: headings on both axes, a cell per scene and
+   thread. The one-pixel gaps are the borders, so the cells line up. */
+
+.plot-grid {
+  display: grid;
+  gap: 1px;
+  overflow: hidden;
+  border: 1px solid var(--ui-border);
+  border-radius: var(--shape-m);
+  background: var(--ui-border);
+}
+
+.plot-corner {
+  background: var(--ui-subtle);
+}
+
+.plot-head {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 6px;
+  background: var(--ui-subtle);
+}
+
+.plot-heading {
+  flex: 1 1 auto;
+  min-width: 0;
+  border: none;
+  background: none;
+  color: inherit;
+  font: inherit;
+  font-size: var(--text-secondary);
+  font-weight: 600;
+  outline: none;
+}
+
+.plot-remove {
+  display: inline-flex;
+  padding: 2px;
+  border: none;
+  background: none;
+  color: inherit;
+  opacity: 0.45;
+  cursor: pointer;
+}
+
+.plot-remove:hover {
+  opacity: 1;
+}
+
+.plot-cell {
+  min-height: 3rem;
+  padding: 6px;
+  border: none;
+  background: var(--ui-bg);
+  color: inherit;
+  font: inherit;
+  font-size: var(--text-secondary);
+  outline: none;
+  resize: vertical;
+}
+
+.plot-cell:focus {
+  box-shadow: inset 0 0 0 2px var(--ui-accent);
+}
