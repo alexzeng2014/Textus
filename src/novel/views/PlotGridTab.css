@@ -17,8 +17,8 @@
 .plot-head {
   display: flex;
   align-items: center;
-  gap: 4px;
-  padding: 4px 6px;
+  gap: var(--space-1);
+  padding: var(--space-1) var(--space-2);
   background: var(--ui-subtle);
 }
 
@@ -50,7 +50,7 @@
 
 .plot-cell {
   min-height: 3rem;
-  padding: 6px;
+  padding: var(--space-2);
   border: none;
   background: var(--ui-bg);
   color: inherit;
